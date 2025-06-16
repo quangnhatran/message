@@ -1,0 +1,35 @@
+<!-- public/login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đăng nhập</title>
+</head>
+<body>
+  <h2>Đăng nhập</h2>
+  <form id="loginForm">
+    <input type="email" placeholder="Email" id="email" required><br>
+    <input type="password" placeholder="Mật khẩu" id="password" required><br>
+    <button type="submit">Đăng nhập</button>
+  </form>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.value,
+          password: password.value
+        })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem('username', data.username);
+        window.location.href = '/index.html'; // chuyển tới trang chat
+      } else {
+        alert(data.message);
+      }
+    });
+  </script>
+</body>
+</html>

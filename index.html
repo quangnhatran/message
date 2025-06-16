@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <style>
+    #messages {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 10px;
+      max-width: 70%;
+      clear: both;
+    }
+
+    .my-message {
+      background-color: #dcf8c6;
+      float: right;
+      text-align: right;
+    }
+
+    .other-message {
+      background-color: #eee;
+      float: left;
+      text-align: left;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>Simple Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+    <input type="text" id="username" placeholder="Nhập tên của bạn..." />
+  </div>
+  <ul id="messages"></ul>
+  <form id="form">
+    <input id="input" autocomplete="off" placeholder="Nhập tin nhắn..." />
+    <button>Gửi</button>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
